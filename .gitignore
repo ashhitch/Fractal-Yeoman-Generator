@@ -5,9 +5,6 @@ tests/diffs
 public/css
 sassdoc
 .sass-cache
-dist/*
-src/css
-src/css/*
 reports
 files
 npm-log*
