@@ -1,0 +1,11 @@
+<main class="<%= props.name_dash %>" role="main">
+  <section class="<%= props.name_dash %>__content">
+
+      <% props.elements_dash.split(/\s*,\s*/).forEach(function(component) { %>
+          <div class="<%= props.name_dash %>__<%= component %>">
+            {{#block '<%= component.replace(/-/g,"_") %>'}}{{/block}}
+          </div>
+          <% }); %>
+
+  </section>
+</main>

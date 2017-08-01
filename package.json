@@ -1,0 +1,22 @@
+{
+  "name": "fractal-components",
+  "version": "1.0.0",
+  "description": "Generates files for fractal.build pattern library",
+  "main": "generators/app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman",
+    "fractal",
+    "pattern",
+    "library"
+  ],
+  "author": "Ash Hitchcock",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "yeoman-generator": "^1.1.1",
+    "yosay": "^2.0.1"
+  }
+}

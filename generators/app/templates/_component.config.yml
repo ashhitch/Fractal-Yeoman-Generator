@@ -1,0 +1,6 @@
+title: <%= props.name %>
+status: wip
+<% if(props.elements_dash) {
+context:
+  props.elements_dash.split(/\s*,\s*/).forEach(function(component) { %>  <%= component %>: "<%= component %>"
+<% }); } %>
