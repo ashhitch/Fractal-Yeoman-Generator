@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const  htmlwiring = require('html-wiring');
 
 module.exports = class extends Generator {
 
@@ -16,7 +17,6 @@ module.exports = class extends Generator {
     ));
 
   }
-
   prompting() {
     return this.prompt([{
       type: 'list',
@@ -100,6 +100,18 @@ module.exports = class extends Generator {
           props: this.answers
         }
       );
+
+      const hook = '/*----------  //End ' + this.answers.type +'  ----------*/';
+      const sassFileLocation = 'src/styles/main.scss';
+      const sassFile = htmlwiring.readFileAsString(sassFileLocation);
+      const insert = '@import "../../' + path + this.answers.name_dash + '.scss' +'";';
+
+      if (sassFile.indexOf(insert) === -1) {
+        const newContent = sassFile.replace(hook, insert+'\n'+hook);
+        htmlwiring.writeFileFromString(newContent, sassFileLocation);
+
+        this.log(`${this.answers.type} added to ${chalk.green(sassFileLocation)}`);
+      }
 
     }
     if (this.answers.type == 'component' || this.answers.type == 'container' || this.answers.type == 'element' || this.answers.type == 'page') {
